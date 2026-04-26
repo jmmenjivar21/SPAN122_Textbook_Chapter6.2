@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish 122 · Capítulo 6 · Semana 4 · Viajes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1a2744;--navy-light:#243561;--terracotta:#c4522a;--gold:#d4a537;--gold-light:#f0c45a;
+    --cream:#fdf6ec;--cream-dark:#f4e8d4;--sage:#5a7a5e;--sage-light:#7ba080;
+    --text:#2a1f14;--text-light:#6b5a45;--correct:#2d6e3e;--wrong:#9e2a2a;
+    --correct-bg:#e8f5ec;--wrong-bg:#fde8e8;--tile-shadow:0 4px 20px rgba(26,39,68,0.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Source Serif 4',Georgia,serif;background:var(--cream);color:var(--text);line-height:1.7;}
+  header{background:var(--navy);color:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,0.35);}
+  .header-inner{display:flex;align-items:center;gap:20px;padding:14px 32px;max-width:1100px;margin:0 auto;}
+  .header-badge{background:var(--terracotta);color:white;font-family:'Space Mono',monospace;font-size:.7rem;padding:4px 10px;border-radius:3px;letter-spacing:.08em;white-space:nowrap;}
+  .header-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;flex:1;}
+  .header-subtitle{font-family:'Space Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;}
+  nav{background:var(--navy-light);border-bottom:3px solid var(--gold);overflow-x:auto;}
+  .nav-inner{display:flex;max-width:1100px;margin:0 auto;padding:0 16px;}
+  nav button{background:none;border:none;color:rgba(255,255,255,.6);font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-3px;white-space:nowrap;transition:color .2s,border-color .2s;}
+  nav button:hover{color:white;}
+  nav button.active{color:var(--gold-light);border-bottom-color:var(--gold-light);}
+  main{max-width:1100px;margin:0 auto;padding:40px 24px 80px;}
+  section{display:none;}
+  section.active{display:block;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  /* HERO */
+  .week-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 60%,#2d4a7a 100%);color:white;border-radius:12px;padding:36px 40px;margin-bottom:32px;position:relative;overflow:hidden;}
+  .week-hero::before{content:'SEM. 4';position:absolute;right:32px;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,.06);pointer-events:none;}
+  .week-hero h1{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px;}
+  .week-hero p{font-style:italic;color:rgba(255,255,255,.7);font-size:1rem;}
+  .topic-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:white;font-family:'Space Mono',monospace;font-size:.65rem;padding:5px 12px;border-radius:20px;letter-spacing:.05em;}
+
+  /* SCHEDULE */
+  .schedule-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;box-shadow:var(--tile-shadow);margin-bottom:32px;}
+  .schedule-table thead{background:var(--navy);color:white;}
+  .schedule-table th{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 16px;text-align:left;}
+  .schedule-table tbody tr:nth-child(even){background:var(--cream-dark);}
+  .schedule-table tbody tr:nth-child(odd){background:white;}
+  .schedule-table tbody tr:hover{background:#efe4d4;transition:background .2s;}
+  .schedule-table td{padding:14px 16px;font-size:.9rem;vertical-align:top;}
+  .day-type{display:inline-block;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px;letter-spacing:.05em;}
+  .type-inclass{background:var(--navy);color:white;}
+  .type-self{background:var(--sage);color:white;}
+  .type-practice{background:var(--terracotta);color:white;}
+  .day-focus{font-weight:600;color:var(--navy);}
+  .hw-note{font-style:italic;color:var(--text-light);font-size:.85rem;}
+
+  /* SECTION TITLES */
+  .section-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy);margin-bottom:6px;border-left:5px solid var(--terracotta);padding-left:16px;}
+  .section-meta{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--text-light);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;padding-left:21px;}
+
+  /* VOCAB CARDS */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:32px;}
+  .vocab-card{background:white;border-radius:10px;box-shadow:var(--tile-shadow);cursor:pointer;perspective:600px;height:110px;position:relative;}
+  .vocab-card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,2,.6,1);border-radius:10px;}
+  .vocab-card.flipped .vocab-card-inner{transform:rotateY(180deg);}
+  .vocab-front,.vocab-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center;}
+  .vocab-front{background:white;border:2px solid var(--cream-dark);}
+  .vocab-front .es{font-style:italic;font-size:.95rem;color:var(--navy);font-weight:600;}
+  .vocab-front .hint{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--text-light);margin-top:5px;}
+  .vocab-back{background:var(--navy);color:white;transform:rotateY(180deg);}
+  .vocab-back .en{font-size:.88rem;font-weight:300;}
+  .flip-tip{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--text-light);text-align:center;margin-bottom:14px;}
+
+  /* GRAMMAR BOXES */
+  .grammar-box{background:white;border-radius:12px;box-shadow:var(--tile-shadow);overflow:hidden;margin-bottom:28px;}
+  .grammar-header{background:var(--navy);color:white;padding:16px 24px;display:flex;align-items:center;gap:12px;}
+  .grammar-icon{width:32px;height:32px;background:var(--terracotta);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:.7rem;font-weight:700;flex-shrink:0;}
+  .grammar-header h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;}
+  .grammar-body{padding:24px;}
+  .grammar-body p{margin-bottom:14px;font-size:.95rem;}
+  .pronoun-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem;}
+  .pronoun-table th{background:var(--cream-dark);padding:10px 14px;text-align:left;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);}
+  .pronoun-table td{padding:10px 14px;border-bottom:1px solid var(--cream-dark);}
+  .pronoun-table .sp{font-style:italic;color:var(--navy);font-weight:600;}
+  .pronoun-table .en{color:var(--text-light);}
+  .example-block{background:var(--cream);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0;}
+  .example-block p{margin:4px 0;font-size:.9rem;}
+  .example-block .label{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-light);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px!important;}
+  .example-block .es{font-style:italic;color:var(--navy);}
+  .example-block .en{color:var(--text-light);font-size:.82rem;}
+  .ojo-box{background:#fffbea;border:1px solid var(--gold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;font-size:.88rem;}
+  .ojo-label{font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;color:#856404;letter-spacing:.08em;margin-bottom:6px;display:block;}
+  .info-box{background:#f0f4ff;border:1px solid #6688cc;border-left:4px solid #6688cc;border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;font-size:.88rem;}
+  .info-label{font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;color:#3a5a99;letter-spacing:.08em;margin-bottom:8px;display:block;}
+
+  /* EXERCISES */
+  .exercise-card{background:white;border-radius:12px;box-shadow:var(--tile-shadow);overflow:hidden;margin-bottom:32px;}
+  .exercise-header{background:var(--terracotta);color:white;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .exercise-header h3{font-family:'Playfair Display',serif;font-size:1.05rem;}
+  .exercise-header .ex-num{font-family:'Space Mono',monospace;font-size:.65rem;background:rgba(0,0,0,.2);padding:4px 10px;border-radius:3px;letter-spacing:.08em;}
+  .exercise-body{padding:24px;}
+  .exercise-body .instructions{font-style:italic;color:var(--text-light);margin-bottom:20px;font-size:.9rem;border-bottom:1px solid var(--cream-dark);padding-bottom:14px;}
+  .exercise-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;padding:12px 14px;border-radius:8px;background:var(--cream);transition:background .2s;}
+  .exercise-item.correct{background:var(--correct-bg);}
+  .exercise-item.wrong{background:var(--wrong-bg);}
+  .item-num{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text-light);min-width:22px;margin-top:3px;}
+  .item-text{flex:1;}
+  .fill-sentence{font-size:.92rem;line-height:2.2;display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+  .blank-input{background:white;border:none;border-bottom:2px solid var(--navy);padding:2px 8px;font-family:'Source Serif 4',serif;font-style:italic;font-size:.9rem;color:var(--navy);min-width:80px;transition:border-color .2s;}
+  .blank-input:focus{outline:none;border-bottom-color:var(--gold);}
+  .blank-input.correct-input{border-bottom-color:var(--correct);color:var(--correct);}
+  .blank-input.wrong-input{border-bottom-color:var(--wrong);color:var(--wrong);}
+  .full-input{width:100%;border:2px solid var(--cream-dark);border-radius:6px;padding:8px 12px;font-family:'Source Serif 4',serif;font-style:italic;font-size:.9rem;color:var(--navy);background:white;margin-top:6px;transition:border-color .2s;}
+  .full-input:focus{outline:none;border-color:var(--gold);}
+  .full-input.correct-input{border-color:var(--correct);background:var(--correct-bg);}
+  .full-input.wrong-input{border-color:var(--wrong);background:var(--wrong-bg);}
+  .feedback{font-family:'Space Mono',monospace;font-size:.65rem;margin-top:5px;display:none;}
+  .feedback.show{display:block;}
+  .feedback.correct{color:var(--correct);}
+  .feedback.wrong{color:var(--wrong);}
+  .btn-row{display:flex;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--cream-dark);flex-wrap:wrap;}
+  .btn{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;border-radius:6px;border:none;cursor:pointer;transition:all .2s;}
+  .btn-check{background:var(--navy);color:white;}
+  .btn-check:hover{background:var(--navy-light);transform:translateY(-1px);}
+  .btn-reset{background:var(--cream-dark);color:var(--text);}
+  .btn-reset:hover{background:#e0d0b8;}
+  .score-badge{font-family:'Space Mono',monospace;font-size:.7rem;padding:6px 14px;border-radius:20px;margin-left:auto;display:none;align-items:center;}
+  .score-badge.show{display:flex;}
+  .score-badge.good{background:var(--correct-bg);color:var(--correct);}
+  .score-badge.ok{background:#fff3cd;color:#856404;}
+  .score-badge.retry{background:var(--wrong-bg);color:var(--wrong);}
+  .word-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding:14px;background:var(--cream);border-radius:8px;border:1px dashed var(--cream-dark);}
+  .word-bank-label{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-light);letter-spacing:.08em;text-transform:uppercase;width:100%;margin-bottom:4px;}
+  .word-chip{background:white;border:1px solid var(--cream-dark);border-radius:4px;padding:4px 10px;font-style:italic;font-size:.82rem;color:var(--navy);}
+
+  /* CONJ TABLES */
+  .conj-section{margin-bottom:24px;}
+  .conj-verb-header{background:var(--navy);color:white;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:8px 14px;border-radius:6px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+  .conj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+  .conj-row{display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:6px;padding:8px 12px;}
+  .conj-pronoun{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text-light);min-width:90px;}
+  .conj-input{flex:1;border:none;border-bottom:2px solid var(--navy);background:transparent;font-family:'Source Serif 4',serif;font-style:italic;font-size:.9rem;color:var(--navy);padding:2px 4px;}
+  .conj-input:focus{outline:none;border-bottom-color:var(--gold);}
+  .conj-input.correct-input{border-bottom-color:var(--correct);color:var(--correct);}
+  .conj-input.wrong-input{border-bottom-color:var(--wrong);color:var(--wrong);}
+  .given-form{font-style:italic;color:var(--text-light);font-size:.9rem;}
+  .verb-hint{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--text-light);background:var(--cream-dark);padding:2px 7px;border-radius:3px;}
+
+  /* CULTURAL */
+  .cultural-card{background:white;border-radius:12px;box-shadow:var(--tile-shadow);overflow:hidden;margin-bottom:28px;}
+  .cultural-header{background:linear-gradient(90deg,var(--sage) 0%,var(--sage-light) 100%);color:white;padding:16px 24px;}
+  .cultural-header h3{font-family:'Playfair Display',serif;font-size:1.1rem;}
+  .cultural-body{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:640px){.cultural-body{grid-template-columns:1fr;}}
+  .fact-card{background:var(--cream);border-radius:8px;padding:16px;}
+  .fact-card .fact-icon{font-size:1.5rem;margin-bottom:8px;}
+  .fact-card h4{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:var(--sage);margin-bottom:6px;text-transform:uppercase;}
+  .fact-card p{font-size:.88rem;}
+
+  /* VIDEO LOG */
+  .checklist-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--cream);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:background .2s;}
+  .checklist-item:hover{background:var(--cream-dark);}
+  .checklist-item input[type=checkbox]{width:18px;height:18px;accent-color:var(--sage);cursor:pointer;flex-shrink:0;}
+  .checklist-item label{font-size:.92rem;cursor:pointer;flex:1;}
+  .checklist-item.done label{text-decoration:line-through;color:var(--text-light);}
+  .script-area{width:100%;border:2px solid var(--cream-dark);border-radius:8px;padding:16px;font-family:'Source Serif 4',serif;font-size:.92rem;color:var(--navy);resize:vertical;min-height:220px;margin-top:12px;background:white;transition:border-color .2s;}
+  .script-area:focus{outline:none;border-color:var(--gold);}
+  .progress-bar-wrap{background:var(--cream-dark);border-radius:10px;height:8px;overflow:hidden;margin:6px 0 4px;}
+  .progress-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--sage),var(--sage-light));transition:width .5s ease;}
+  .connector-chip{display:inline-block;background:var(--navy);color:white;font-family:'Space Mono',monospace;font-size:.65rem;padding:3px 9px;border-radius:4px;margin:2px 3px;}
+
+  @media(max-width:600px){
+    .header-inner{padding:12px 16px;gap:10px;}
+    main{padding:24px 16px 60px;}
+    .week-hero{padding:24px 20px;}
+    .week-hero h1{font-size:1.5rem;}
+    .grammar-body{padding:16px;}
+    .exercise-body{padding:16px;}
+    .conj-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="header-badge">SPSCC · ESP 122</span>
+    <span class="header-title">Capítulo 6 — Viajes · Semana 4</span>
+    <span class="header-subtitle">Week 4 · Chapters 5–8</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="active" onclick="showSection('overview')">📋 Overview</button>
+    <button onclick="showSection('vocab')">🃏 Verb Forms</button>
+    <button onclick="showSection('gramatica')">📐 Gramática</button>
+    <button onclick="showSection('ejercicios')">✏️ Ejercicios</button>
+    <button onclick="showSection('cultura')">🏴‍☠️ Cultura</button>
+    <button onclick="showSection('videolog')">🎥 Video Log 6</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════ OVERVIEW -->
+<section id="overview" class="active">
+  <div class="week-hero">
+    <h1>Week 4 — Capítulo 6: Viajes</h1>
+    <p>SPSCC · Spanish 122 · Irregular Preterite · Present Progressive · ir a + infinitive · Relative Pronouns</p>
+    <div class="topic-chips">
+      <span class="chip">pretérito irregular: hacer / ir / ser</span>
+      <span class="chip">presente progresivo</span>
+      <span class="chip">ir a + infinitivo</span>
+      <span class="chip">que · donde · quien</span>
+      <span class="chip">El Caribe y sus piratas</span>
+      <span class="chip">Video Log 6</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Weekly Schedule</h2>
+  <p class="section-meta">4 days · 4 focuses · Semana 4</p>
+
+  <table class="schedule-table">
+    <thead><tr><th>Day</th><th>Type</th><th>Focus</th><th>Activities</th><th>Homework</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Monday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:.65rem">Lunes</small></td>
+        <td><span class="day-type type-self">Self-Guided</span></td>
+        <td class="day-focus">Grammar 2 — Irregular Preterite</td>
+        <td>Read Grammar 2 (hacer/ir/ser in preterite); complete Ejercicio 5A (tables); write 5 sentences about last weekend using irregular preterite</td>
+        <td class="hw-note">Ejercicio 5A due Tuesday; memorize hacer/ir/ser preterite forms</td>
+      </tr>
+      <tr>
+        <td><strong>Tuesday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:.65rem">Martes</small></td>
+        <td><span class="day-type type-inclass">In-Class</span></td>
+        <td class="day-focus">Irregular Preterite + Progressive</td>
+        <td>Grammar 2 consolidation; Ejercicio 5B (context fill-in); Grammar 3 (present progressive); Ejercicio 6; <em>¿Qué estabas haciendo?</em> activity</td>
+        <td class="hw-note">Ejercicio 7 (ir a + infinitive); draft 3 future travel plans using ir a</td>
+      </tr>
+      <tr>
+        <td><strong>Wednesday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:.65rem">Miércoles</small></td>
+        <td><span class="day-type type-practice">Practice</span></td>
+        <td class="day-focus">Relative Pronouns + Video Log Draft</td>
+        <td>Grammar 4 (relative pronouns: que, donde, quien); Ejercicio 8 (connect the clauses); Video Log 6 script draft; peer checklist review</td>
+        <td class="hw-note">Finalize Video Log 6 script; record before Thursday</td>
+      </tr>
+      <tr>
+        <td><strong>Thursday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:.65rem">Jueves</small></td>
+        <td><span class="day-type type-inclass">In-Class</span></td>
+        <td class="day-focus">Video Log Workshop + Oral Activity</td>
+        <td>Submit Video Log 6; present travel story orally; <em>El Caribe y sus piratas</em> cultural note; Chapter 6 wrap-up and preview of Chapter 7</td>
+        <td class="hw-note">Begin reviewing Chapter 5–6 for Midterm (Week 5)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-title">Tuesday In-Class Plan</h2>
+  <p class="section-meta">Martes · En clase · 50 minutes</p>
+  <div style="display:grid;gap:12px;margin-bottom:32px;">
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--gold)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--gold);min-width:70px">0:00–0:05</div>
+      <div class="item-text"><strong>Warm-Up:</strong> Quick preterite chain — instructor says <em>"Ayer yo…"</em> and a student adds a preterite sentence, then passes to the next student.</div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--terracotta)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--terracotta);min-width:70px">0:05–0:20</div>
+      <div class="item-text"><strong>Irregular Preterite Review (hacer/ir/ser):</strong> Write all three paradigms on the board. Note that <em>ir</em> and <em>ser</em> are IDENTICAL in preterite — context distinguishes meaning. Students write one sentence using each in a travel context.</div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--navy)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--navy);min-width:70px">0:20–0:35</div>
+      <div class="item-text"><strong>Present Progressive Instruction:</strong> Introduce <em>estar + -ando/-iendo</em>. Contrast with preterite. Show images of travel scenarios — students describe: <em>"Está haciendo las maletas." / "Están recorriendo la ciudad."</em></div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--sage)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--sage);min-width:70px">0:35–0:45</div>
+      <div class="item-text"><strong>ir a + infinitive:</strong> Introduce future plans structure. Students write their top 3 travel goals: <em>"El próximo año voy a viajar a ___ porque ___."</em></div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--gold)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--gold);min-width:70px">0:45–0:50</div>
+      <div class="item-text"><strong>Share Plans:</strong> Each student states one future travel plan. Class asks one follow-up question.</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Thursday In-Class Plan</h2>
+  <p class="section-meta">Jueves · En clase · 50 minutes</p>
+  <div style="display:grid;gap:12px;margin-bottom:32px;">
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--terracotta)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--terracotta);min-width:70px">0:00–0:05</div>
+      <div class="item-text"><strong>Submit Video Log 6:</strong> Upload travel journal video to class platform.</div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--navy)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--navy);min-width:70px">0:05–0:30</div>
+      <div class="item-text"><strong>Oral Travel Story:</strong> Each student tells a 90-second travel story (real or imagined) using preterite, progressive, relative pronouns, and connectors. Partner identifies: one cause connector, one relative clause, and one irregular preterite form.</div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--sage)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--sage);min-width:70px">0:30–0:40</div>
+      <div class="item-text"><strong>Nota Cultural — El Caribe y sus piratas:</strong> Brief instructor presentation. Students write 2 preterite sentences about something a pirate "did" in the Caribbean.</div>
+    </div>
+    <div class="exercise-item" style="background:white;border-left:4px solid var(--gold)">
+      <div class="item-num" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--gold);min-width:70px">0:40–0:50</div>
+      <div class="item-text"><strong>Chapter 6 Wrap-Up:</strong> Review key grammar. Midterm preview — format and study strategies.</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Online Resources</h2>
+  <p class="section-meta">Semana 4 · Outside Materials</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:16px">
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:var(--tile-shadow)">
+      <div style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--terracotta);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Monday · Self-Guided</div>
+      <p style="font-size:.88rem;font-weight:600;margin-bottom:8px">Pretérito irregular: hacer / ir / ser</p>
+      <a href="https://www.youtube.com/watch?v=4Ayxgk4YK0A" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none;margin-bottom:4px">▶ Video: Irregular Preterite: HACER, IR, SER</a>
+      <a href="https://conjuguemos.com/verb/homework/1374039#dashboard" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none">📝 Practice: Irregular Preterite Drill (Conjuguemos)</a>
+    </div>
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:var(--tile-shadow)">
+      <div style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--terracotta);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Tuesday</div>
+      <p style="font-size:.88rem;font-weight:600;margin-bottom:8px">Presente progresivo + ir a + infinitivo</p>
+      <a href="https://www.youtube.com/watch?v=wakiBSiW6Is" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none;margin-bottom:4px">▶ Video: Present Progressive in Spanish</a>
+      <a href="https://studyspanish.com/grammar/test/presprog" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none">📝 Practice: Present Progressive Practice</a>
+    </div>
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:var(--tile-shadow)">
+      <div style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--terracotta);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Wednesday</div>
+      <p style="font-size:.88rem;font-weight:600;margin-bottom:8px">Pronombres relativos + borrador Video Log</p>
+      <a href="https://www.youtube.com/watch?v=fnD1VaLpsCA" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none;margin-bottom:4px">▶ Video: Relative Pronouns Que and Donde</a>
+      <a href="https://studyspanish.com/grammar/test/relprorev" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none">📝 Practice: Relative Pronouns Practice</a>
+    </div>
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:var(--tile-shadow)">
+      <div style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--terracotta);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Thursday</div>
+      <p style="font-size:.88rem;font-weight:600;margin-bottom:8px">Video Log Workshop + Presentación oral</p>
+      <a href="https://www.youtube.com/watch?v=OBZu4T-01Jg" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none;margin-bottom:4px">▶ Video: Travel Literature &amp; the Caribbean (Dreaming Spanish)</a>
+      <a href="https://www.gimkit.com/view/67f3dff5d60566402c00f1c4" target="_blank" style="display:block;font-size:.8rem;color:var(--navy);text-decoration:none">📝 Practice: Travel Vocabulary (Gimkit)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VERB FORMS -->
+<section id="vocab">
+  <h2 class="section-title">Verb Forms — Quick Reference</h2>
+  <p class="section-meta">Click any card to flip and see the form</p>
+  <p class="flip-tip">🃏 Tap a card to reveal the answer</p>
+
+  <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.1rem;margin-bottom:12px">Irregular Preterite — hacer / ir / ser</h3>
+  <div class="vocab-grid" id="irregCards"></div>
+
+  <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.1rem;margin-bottom:12px;margin-top:8px">Present Participles (-ando / -iendo)</h3>
+  <div class="vocab-grid" id="progressCards"></div>
+
+  <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.1rem;margin-bottom:12px;margin-top:8px">Relative Pronouns — que / donde / quien</h3>
+  <div class="vocab-grid" id="relCards"></div>
+</section>
+
+<!-- ══════════════ GRAMÁTICA -->
+<section id="gramatica">
+  <h2 class="section-title">Gramática — Grammar Notes</h2>
+  <p class="section-meta">Week 4 · Four key structures</p>
+
+  <!-- G2 -->
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon">G2</div>
+      <div>
+        <h3>Pretérito Irregular — hacer, ir, ser</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Memorize these three — essential for past narration!</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th>Pronoun</th><th>hacer (to do/make)</th><th>ir (to go)</th><th>ser (to be)</th></tr></thead>
+        <tbody>
+          <tr><td class="sp">yo</td><td class="sp">hice</td><td class="sp">fui</td><td class="sp">fui</td></tr>
+          <tr><td class="sp">tú</td><td class="sp">hiciste</td><td class="sp">fuiste</td><td class="sp">fuiste</td></tr>
+          <tr><td class="sp">él/ella/Ud.</td><td class="sp">hizo</td><td class="sp">fue</td><td class="sp">fue</td></tr>
+          <tr><td class="sp">nosotros</td><td class="sp">hicimos</td><td class="sp">fuimos</td><td class="sp">fuimos</td></tr>
+          <tr><td class="sp">ellos/Uds.</td><td class="sp">hicieron</td><td class="sp">fueron</td><td class="sp">fueron</td></tr>
+        </tbody>
+      </table>
+      <div class="ojo-box">
+        <span class="ojo-label">⚠ KEY NOTES</span>
+        <p style="margin-bottom:6px"><strong>IR and SER</strong> share identical preterite forms — context tells you which is meant:</p>
+        <p style="font-style:italic;color:var(--navy)">"Fui al mercado." <span style="color:var(--text-light);font-style:normal">(IR)</span> &nbsp;vs.&nbsp; "Fue una experiencia increíble." <span style="color:var(--text-light);font-style:normal">(SER)</span></p>
+        <p style="margin-top:8px"><strong>HACER:</strong> the él/ella form is <em>hizo</em> — the z keeps the /s/ sound before the o.</p>
+      </div>
+      <div class="info-box">
+        <span class="info-label">📌 OTHER IRREGULAR PRETERITES TO KNOW</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">estar → <strong>estuve</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">tener → <strong>tuve</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">poder → <strong>pude</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">querer → <strong>quise</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">venir → <strong>vine</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">decir → <strong>dije</strong></span>
+          <span style="font-style:italic;font-size:.85rem;background:white;border:1px solid #ccd;padding:3px 9px;border-radius:4px;">traer → <strong>traje</strong></span>
+        </div>
+        <p style="margin-top:8px;font-size:.82rem;color:var(--text-light)">These follow the "u-stem" or "i-stem" pattern — no accent marks in any form.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- G3 -->
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon">G3</div>
+      <div>
+        <h3>El presente progresivo — Present Progressive</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">estar (conjugated) + present participle (-ando / -iendo)</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <p>Use <strong>estar + participle</strong> for actions happening <strong>right now</strong> — not for future plans or habitual actions.</p>
+      <table class="pronoun-table">
+        <thead><tr><th>Verb type</th><th>Infinitive</th><th>Participle</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="en">-ar verbs</td><td class="sp">hablar / viajar</td><td class="sp">hablando / viajando</td><td class="en">regular</td></tr>
+          <tr><td class="en">-er verbs</td><td class="sp">comer / leer</td><td class="sp">comiendo / leyendo</td><td class="en">leer: y replaces i</td></tr>
+          <tr><td class="en">-ir verbs</td><td class="sp">vivir / dormir</td><td class="sp">viviendo / durmiendo</td><td class="en">dormir: stem-change!</td></tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        <p class="label">Examples</p>
+        <p class="es">Estoy haciendo las maletas ahora mismo. <span class="en">→ I am packing right now.</span></p>
+        <p class="es">Está recorriendo el casco antiguo de la ciudad. <span class="en">→ She is touring the old quarter.</span></p>
+        <p class="es">¿Qué estás leyendo en el avión? <span class="en">→ What are you reading on the plane?</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- G4 -->
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon">G4</div>
+      <div>
+        <h3>ir a + Infinitivo — Near Future Plans</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">"going to do" · conjugated ir + a + infinitive</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <p>Conjugate <strong>ir</strong> and add <strong>a + infinitive</strong> to express near-future plans. Combine with time expressions for precision.</p>
+      <table class="pronoun-table">
+        <thead><tr><th>Subject</th><th>ir a + infinitive</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td class="sp">yo</td><td class="sp">voy a viajar</td><td class="sp">Voy a viajar a Colombia el próximo verano.</td></tr>
+          <tr><td class="sp">tú</td><td class="sp">vas a facturar</td><td class="sp">¿Vas a facturar el equipaje?</td></tr>
+          <tr><td class="sp">él/ella</td><td class="sp">va a alojarse</td><td class="sp">Ella va a alojarse en un hostal económico.</td></tr>
+          <tr><td class="sp">nosotros</td><td class="sp">vamos a recorrer</td><td class="sp">Vamos a recorrer toda la costa caribeña.</td></tr>
+          <tr><td class="sp">ellos/Uds.</td><td class="sp">van a visitar</td><td class="sp">Van a visitar las ruinas mayas en enero.</td></tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        <p class="label">Time Expressions</p>
+        <p class="es">esta tarde · mañana · la próxima semana · el mes que viene · el próximo verano</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- G5 -->
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon">G5</div>
+      <div>
+        <h3>Pronombres relativos — que, donde, quien</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Connecting clauses · Relative Pronouns</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th>Pronoun</th><th>Refers to</th><th>Used for</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="connector-chip">que</span></td>
+            <td class="en">people or things</td>
+            <td class="en">most common — no preposition needed</td>
+            <td class="sp">El hotel <strong>que</strong> reservé era perfecto.</td>
+          </tr>
+          <tr>
+            <td><span class="connector-chip">donde</span></td>
+            <td class="en">places</td>
+            <td class="en">refers to a location</td>
+            <td class="sp">La ciudad <strong>donde</strong> nací tiene mucha historia.</td>
+          </tr>
+          <tr>
+            <td><span class="connector-chip">quien</span></td>
+            <td class="en">people only</td>
+            <td class="en">after prepositions (con, de, a, para…)</td>
+            <td class="sp">La guía con <strong>quien</strong> viajamos era bilingüe.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        <p class="label">From the Textbook</p>
+        <p class="es">El lugar <strong>que</strong> más me gustó fue la Ciudad Amurallada de Cartagena.</p>
+        <p class="es">La agencia <strong>donde</strong> trabajé organizaba tours por toda América del Sur.</p>
+        <p class="es">El historiador de <strong>quien</strong> hablo escribió sobre los piratas del Caribe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EJERCICIOS -->
+<section id="ejercicios">
+  <h2 class="section-title">Ejercicios — Practice Exercises</h2>
+  <p class="section-meta">Interactive · Type your answers and click Check</p>
+
+  <!-- EJ 5A -->
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Ejercicio 5A — Irregular Preterite Tables</h3>
+      <span class="ex-num">EJ. 5A</span>
+    </div>
+    <div class="exercise-body">
+      <p class="instructions">Complete the tables. Forms marked ✓ are given — fill in the blanks. / Completa las tablas; las formas ✓ son dadas.</p>
+      <div class="conj-section">
+        <div class="conj-verb-header"><span>HACER — preterite</span><span style="opacity:.6;font-size:.6rem">hice already given</span></div>
+        <div class="conj-grid" id="conjHacer"></div>
+      </div>
+      <div class="conj-section">
+        <div class="conj-verb-header"><span>IR / SER — preterite (identical)</span><span style="opacity:.6;font-size:.6rem">fui / fuiste already given</span></div>
+        <div class="conj-grid" id="conjIrSer"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEj5A()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEj5A()">Reset</button>
+        <span class="score-badge" id="score5A"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EJ 5B -->
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Ejercicio 5B — Irregular Preterite in Context</h3>
+      <span class="ex-num">EJ. 5B</span>
+    </div>
+    <div class="exercise-body">
+      <p class="instructions">Fill in with the correct preterite form of hacer, ir, or ser. / Completa con el pretérito de hacer, ir o ser.</p>
+      <div id="ej5b"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEj5B()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEj5B()">Reset</button>
+        <span class="score-badge" id="score5B"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EJ 6 -->
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Ejercicio 6 — Progresivo: What are they doing right now?</h3>
+      <span class="ex-num">EJ. 6</span>
+    </div>
+    <div class="exercise-body">
+      <p class="instructions">Write what each person is doing RIGHT NOW using the present progressive. / Usa el presente progresivo.</p>
+      <div id="ej6"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEj6()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEj6()">Reset</button>
+        <span class="score-badge" id="score6"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EJ 7 -->
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Ejercicio 7 — ir a + infinitivo: Future Plans</h3>
+      <span class="ex-num">EJ. 7</span>
+    </div>
+    <div class="exercise-body">
+      <p class="instructions">Write future travel plans using ir a + infinitive and a time expression. / Escribe planes de viaje con ir a + infinitivo.</p>
+      <div id="ej7"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEj7()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEj7()">Reset</button>
+        <span class="score-badge" id="score7"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EJ 8 -->
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Ejercicio 8 — Pronombres relativos: que, donde, o quien</h3>
+      <span class="ex-num">EJ. 8</span>
+    </div>
+    <div class="exercise-body">
+      <p class="instructions">Fill in with que, donde, or quien. / Completa con que, donde o quien.</p>
+      <div class="word-bank">
+        <span class="word-bank-label">Pronoun Bank</span>
+        <span class="word-chip">que</span>
+        <span class="word-chip">donde</span>
+        <span class="word-chip">quien</span>
+      </div>
+      <div id="ej8"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEj8()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEj8()">Reset</button>
+        <span class="score-badge" id="score8"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CULTURA -->
+<section id="cultura">
+  <h2 class="section-title">Nota Cultural — El Caribe y sus piratas</h2>
+  <p class="section-meta">The Caribbean and Its Pirates · Siglos XVI–XVIII</p>
+
+  <div class="cultural-card">
+    <div class="cultural-header">
+      <h3>🏴‍☠️ El Caribe y sus piratas / The Caribbean and Its Pirates</h3>
+    </div>
+    <div class="cultural-body">
+      <div class="fact-card">
+        <div class="fact-icon">⚔️</div>
+        <h4>Teatro de conflicto</h4>
+        <p>From the 16th to 18th centuries, the Caribbean was a theater of conflict between European empires. Pirates and privateers played a central role in disrupting trade routes and colonial power.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">🏰</div>
+        <h4>Ciudades fortificadas</h4>
+        <p>Cartagena de Indias (Colombia), La Habana (Cuba), and Santo Domingo (Dominican Republic) were all fortified to protect Spanish silver and gold from raids — their walls still stand today.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">🪙</div>
+        <h4>Las flotas del tesoro</h4>
+        <p>The Spanish crown's treasure fleets — <em>las flotas</em> — carried silver from Potosí (Bolivia) and Veracruz (Mexico) across the Atlantic. These were the most coveted targets for pirates.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">🗺️</div>
+        <h4>Figuras legendarias</h4>
+        <p>Sir Francis Drake, Henry Morgan, and Anne Bonny are legendary figures. Today, the Caribbean coastline remains one of the most historically rich travel destinations in Latin America.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon" style="background:var(--sage)">✍️</div>
+      <div>
+        <h3>Actividad — Escribe sobre los piratas</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Thursday 0:30–0:40 · Use irregular preterite</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <p>Write 2 preterite sentences about something a pirate "did" in the Caribbean. Use at least one irregular preterite form.</p>
+      <div class="example-block">
+        <p class="label">Sentence Starters</p>
+        <p class="es">El pirata <strong>fue</strong> a ___ y <strong>atacó</strong> la flota española.</p>
+        <p class="es">Sir Francis Drake <strong>hizo</strong> un viaje desde ___ hasta ___ en el siglo XVI.</p>
+        <p class="es">Los piratas <strong>fueron</strong> al Caribe <strong>porque</strong> querían el oro español.</p>
+        <p class="es">Anne Bonny <strong>fue</strong> una pirata famosa <strong>que</strong> navegó por el Caribe.</p>
+      </div>
+      <textarea style="width:100%;border:2px solid var(--cream-dark);border-radius:8px;padding:12px;font-family:'Source Serif 4',serif;font-size:.92rem;resize:vertical;min-height:80px;margin-top:12px;background:white" placeholder="1. 
+
+2. "></textarea>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon" style="background:var(--sage)">💬</div>
+      <div>
+        <h3>¡Mi viaje favorito! — Oral Story Checklist</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Thursday 0:05–0:30 · 90-second travel story</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <p>Prepare a 90-second story using ALL Chapter 6 structures. Your partner will identify one cause connector, one relative clause, and one irregular preterite form.</p>
+      <div class="example-block">
+        <p class="label">Structures to Include</p>
+        <p class="es">• Regular preterite: <em>Viajé a ___, llegué el ___, comí ___…</em></p>
+        <p class="es">• Irregular preterite: <em>Fui a ___ / hice ___ / fue una experiencia…</em></p>
+        <p class="es">• Progressive: <em>Estaba recorriendo ___ cuando…</em></p>
+        <p class="es">• ir a + infinitive: <em>La próxima vez voy a ___…</em></p>
+        <p class="es">• Relative clause: <em>"El lugar que más me gustó fue…" / "La ciudad donde me alojé…"</em></p>
+        <p class="es">• Connectors: <em>porque / como / así que / por eso</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VIDEO LOG 6 -->
+<section id="videolog">
+  <h2 class="section-title">Video Log 6</h2>
+  <p class="section-meta">Diario de viaje · Travel Journal Video Log · 2.5–3.5 minutes</p>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon" style="background:var(--gold);color:var(--navy)">📋</div>
+      <div>
+        <h3>Checklist de gramática — Recording Checklist</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Check off each item as you complete your script</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <div id="checklist"></div>
+      <div class="progress-bar-wrap" style="margin-top:16px">
+        <div class="progress-bar" id="checkProgress" style="width:0%"></div>
+      </div>
+      <p id="checkStatus" style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--text-light);margin-top:6px">0 / 8 completed</p>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon" style="background:var(--terracotta)">📝</div>
+      <div>
+        <h3>Guía de grabación — Recording Guide</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Real or imagined trip to a Spanish-speaking country</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <div style="display:grid;gap:10px;">
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--navy);color:white;border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">1</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Opening — introduce your destination</strong>
+          <p style="font-size:.88rem;margin-top:4px">Name your destination and when you went (real or imagined). Use <em>fui a ___ / viajé a ___</em> in the preterite.</p>
+          <div style="display:flex;gap:6px;margin-top:8px"><span style="background:var(--navy);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">pretérito irregular</span></div></div>
+        </div>
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--terracotta);color:white;border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">2</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Narrate 3–4 key events</strong>
+          <p style="font-size:.88rem;margin-top:4px">Use both regular and irregular preterite verbs. Include time expressions.</p>
+          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><span style="background:var(--terracotta);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">pretérito regular</span><span style="background:var(--terracotta);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">pretérito irregular</span></div></div>
+        </div>
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--sage);color:white;border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">3</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Describe 1 moment in progress</strong>
+          <p style="font-size:.88rem;margin-top:4px"><em>"Estaba recorriendo ___ cuando ___."</em></p>
+          <div style="display:flex;gap:6px;margin-top:8px"><span style="background:var(--sage);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">presente progresivo</span></div></div>
+        </div>
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--gold);color:var(--navy);border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">4</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Use at least 2 relative clauses</strong>
+          <p style="font-size:.88rem;margin-top:4px"><em>"El lugar que más me gustó fue…" / "La ciudad donde me alojé…" / "El guía con quien viajé…"</em></p>
+          <div style="display:flex;gap:6px;margin-top:8px"><span style="background:var(--gold);color:var(--navy);font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">que / donde / quien</span></div></div>
+        </div>
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--navy);color:white;border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">5</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Next trip — future plans</strong>
+          <p style="font-size:.88rem;margin-top:4px">State what you will do differently: <em>"La próxima vez voy a ___."</em></p>
+          <div style="display:flex;gap:6px;margin-top:8px"><span style="background:var(--navy);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">ir a + infinitivo</span></div></div>
+        </div>
+        <div style="background:var(--cream);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start">
+          <div style="background:var(--terracotta);color:white;border-radius:6px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:.9rem;flex-shrink:0">6</div>
+          <div><strong style="font-size:.9rem;color:var(--navy)">Connect your ideas throughout</strong>
+          <p style="font-size:.88rem;margin-top:4px">Use: <em>porque, como, por eso, así que</em> throughout your narration.</p>
+          <div style="display:flex;gap:6px;margin-top:8px"><span style="background:var(--terracotta);color:white;font-family:'Space Mono',monospace;font-size:.6rem;padding:3px 8px;border-radius:3px">porque · como · por eso · así que</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <h3>Script Draft — Escribe tu guión aquí</h3>
+      <span class="ex-num">DRAFT</span>
+    </div>
+    <div class="exercise-body">
+      <p style="font-size:.88rem;color:var(--text-light);margin-bottom:12px">Write your travel journal script before recording. Aim for 2.5–3.5 minutes (~250–350 words).</p>
+      <textarea class="script-area" placeholder="Hola, me llamo ___ y hoy quiero hablarles de mi viaje a ___.
+
+Fui a ___ / Viajé a ___ el ___ pasado. Primero, llegué a ___...
+
+Hice ___ y también fui a ___. Visité ___ que era increíble porque...
+
+Estaba recorriendo ___ cuando de repente ___. Fue una experiencia...
+
+El lugar que más me gustó fue ___. La ciudad donde me alojé tenía ___...
+
+La próxima vez voy a ___ porque ___. También voy a ___...
+
+En conclusión, fue un viaje increíble, así que lo recomiendo a todos."></textarea>
+      <p style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-light);margin-top:8px">Submit on class platform · 2.5–3.5 minutes · Speak directly to camera</p>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <div class="grammar-icon" style="background:var(--sage)">👁</div>
+      <div>
+        <h3>Peer Review — Wednesday Workshop</h3>
+        <p style="font-size:.75rem;opacity:.7;margin-top:2px;font-family:'Space Mono',monospace">Watch partner's draft · 2 compliments + 1 suggestion</p>
+      </div>
+    </div>
+    <div class="grammar-body">
+      <div id="peerChecklist"></div>
+      <div style="margin-top:20px;">
+        <p style="font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--navy)">✨ Compliments (2):</p>
+        <textarea style="width:100%;border:2px solid var(--cream-dark);border-radius:8px;padding:12px;font-family:'Source Serif 4',serif;font-size:.88rem;resize:vertical;min-height:70px;background:white" placeholder="1. 
+
+2. "></textarea>
+        <p style="font-size:.85rem;font-weight:600;margin:12px 0 8px;color:var(--navy)">💡 Suggestion (1):</p>
+        <textarea style="width:100%;border:2px solid var(--cream-dark);border-radius:8px;padding:12px;font-family:'Source Serif 4',serif;font-size:.88rem;resize:vertical;min-height:50px;background:white" placeholder="One thing to improve or add..."></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function buildCards(data,cid){
+  const g=document.getElementById(cid);
+  data.forEach(([es,en])=>{
+    const c=document.createElement('div');
+    c.className='vocab-card';
+    c.innerHTML=`<div class="vocab-card-inner"><div class="vocab-front"><span class="es">${es}</span><span class="hint">tap to flip →</span></div><div class="vocab-back"><span class="en">${en}</span></div></div>`;
+    c.addEventListener('click',()=>c.classList.toggle('flipped'));
+    g.appendChild(c);
+  });
+}
+
+buildCards([
+  ['hacer → yo','hice'],['hacer → tú','hiciste'],['hacer → él/ella','hizo'],
+  ['hacer → nosotros','hicimos'],['hacer → ellos','hicieron'],
+  ['ir/ser → yo','fui'],['ir/ser → tú','fuiste'],['ir/ser → él/ella','fue'],
+  ['ir/ser → nosotros','fuimos'],['ir/ser → ellos','fueron'],
+],'irregCards');
+
+buildCards([
+  ['hablar → -ando','hablando'],['viajar → -ando','viajando'],
+  ['comer → -iendo','comiendo'],['leer → -iendo ⚠','leyendo (y replaces i)'],
+  ['vivir → -iendo','viviendo'],['dormir → -iendo ⚠','durmiendo (stem-change!)'],
+  ['hacer → -iendo','haciendo'],['escribir → -iendo','escribiendo'],
+],'progressCards');
+
+buildCards([
+  ['que','people or things\n"El hotel que reservé…"'],
+  ['donde','places\n"La ciudad donde nací…"'],
+  ['quien','people after prepositions\n"La guía con quien viajamos…"'],
+],'relCards');
+
+function normalize(s){return s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+
+// EJ 5A
+const hacerForms=[
+  {pronoun:'yo',given:'hice'},
+  {pronoun:'nosotros/as',given:null,accepted:['hicimos']},
+  {pronoun:'tú',given:null,accepted:['hiciste']},
+  {pronoun:'ellos/Uds.',given:null,accepted:['hicieron']},
+  {pronoun:'él/ella/Ud.',given:null,accepted:['hizo']},
+];
+const irSerForms=[
+  {pronoun:'yo',given:'fui'},
+  {pronoun:'nosotros/as',given:null,accepted:['fuimos']},
+  {pronoun:'tú',given:'fuiste'},
+  {pronoun:'ellos/Uds.',given:null,accepted:['fueron']},
+  {pronoun:'él/ella/Ud.',given:null,accepted:['fue']},
+];
+
+function buildConjTable(forms,cid,prefix){
+  const g=document.getElementById(cid);
+  forms.forEach((row,i)=>{
+    const d=document.createElement('div');
+    d.className='conj-row';
+    d.innerHTML=row.given
+      ?`<span class="conj-pronoun">${row.pronoun}</span><span class="given-form">${row.given} ✓</span>`
+      :`<span class="conj-pronoun">${row.pronoun}</span><input class="conj-input" id="${prefix}_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false">`;
+    g.appendChild(d);
+  });
+}
+buildConjTable(hacerForms,'conjHacer','hacer');
+buildConjTable(irSerForms,'conjIrSer','irser');
+
+function checkEj5A(){
+  let c=0,t=0;
+  function chk(forms,prefix){forms.forEach((row,i)=>{if(!row.accepted)return;const inp=document.getElementById(`${prefix}_${i}`);if(!inp)return;const ok=row.accepted.some(a=>normalize(a)===normalize(inp.value));inp.className='conj-input '+(ok?'correct-input':'wrong-input');if(ok)c++;t++;});}
+  chk(hacerForms,'hacer');chk(irSerForms,'irser');
+  showScore('score5A',c,t);
+}
+function resetEj5A(){
+  function rst(forms,prefix){forms.forEach((row,i)=>{if(!row.accepted)return;const inp=document.getElementById(`${prefix}_${i}`);if(inp){inp.value='';inp.className='conj-input';}});}
+  rst(hacerForms,'hacer');rst(irSerForms,'irser');
+  document.getElementById('score5A').className='score-badge';
+}
+
+// EJ 5B
+const ej5bData=[
+  {before:'El año pasado yo',verb:'(hacer)',after:'un viaje increíble a Perú.',accepted:['hice']},
+  {before:'¿Adónde',verb:'(ir, tú)',after:'en las últimas vacaciones?',accepted:['fuiste']},
+  {before:'Ella',verb:'(ser)',after:'guía turística durante cinco años.',accepted:['fue']},
+  {before:'Nosotros',verb:'(hacer)',after:'las reservas del hotel con tres meses de anticipación.',accepted:['hicimos']},
+  {before:'¿Qué',verb:'(hacer, ustedes)',after:'cuando llegaron al aeropuerto tarde?',accepted:['hicieron']},
+  {before:'El viaje',verb:'(ser)',after:'la experiencia más importante de su vida.',accepted:['fue']},
+];
+
+function buildEj5B(){
+  const c=document.getElementById('ej5b');
+  ej5bData.forEach((item,i)=>{
+    const d=document.createElement('div');
+    d.className='exercise-item';
+    d.innerHTML=`<span class="item-num">${i+1}.</span><div class="item-text"><div class="fill-sentence"><span>${item.before}</span><span class="verb-hint">${item.verb}</span><input class="blank-input" id="e5b_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:90px"><span>${item.after}</span></div><div class="feedback" id="fb5b_${i}"></div></div>`;
+    c.appendChild(d);
+  });
+}
+function checkEj5B(){
+  let cor=0;
+  ej5bData.forEach((item,i)=>{
+    const inp=document.getElementById(`e5b_${i}`),fb=document.getElementById(`fb5b_${i}`);
+    const ok=item.accepted.some(a=>normalize(a)===normalize(inp.value));
+    inp.className='blank-input '+(ok?'correct-input':'wrong-input');
+    document.querySelectorAll('#ej5b .exercise-item')[i].className='exercise-item '+(ok?'correct':'wrong');
+    fb.className='feedback show '+(ok?'correct':'wrong');
+    fb.textContent=ok?'✓ ¡Correcto!':'✗ Answer: '+item.accepted[0];
+    if(ok)cor++;
+  });
+  showScore('score5B',cor,ej5bData.length);
+}
+function resetEj5B(){
+  ej5bData.forEach((_,i)=>{const inp=document.getElementById(`e5b_${i}`);inp.value='';inp.className='blank-input';document.getElementById(`fb5b_${i}`).className='feedback';document.querySelectorAll('#ej5b .exercise-item')[i].className='exercise-item';});
+  document.getElementById('score5B').className='score-badge';
+}
+
+// EJ 6
+const ej6Data=[
+  {prompt:'Ana / hacer las maletas',accepted:['ana esta haciendo las maletas','esta haciendo las maletas','ana está haciendo las maletas','está haciendo las maletas']},
+  {prompt:'Los turistas / recorrer el mercado',accepted:['los turistas estan recorriendo el mercado','estan recorriendo el mercado','los turistas están recorriendo el mercado','están recorriendo el mercado']},
+  {prompt:'Tú / leer el itinerario',accepted:['tu estas leyendo el itinerario','estas leyendo el itinerario','tú estás leyendo el itinerario','estás leyendo el itinerario']},
+  {prompt:'Nosotros / buscar el hotel en el mapa',accepted:['nosotros estamos buscando el hotel en el mapa','estamos buscando el hotel en el mapa']},
+  {prompt:'Él / dormir en el avión',accepted:['el esta durmiendo en el avion','esta durmiendo en el avion','él está durmiendo en el avión','está durmiendo en el avión']},
+  {prompt:'Yo / escribir en mi diario de viaje',accepted:['yo estoy escribiendo en mi diario de viaje','estoy escribiendo en mi diario de viaje']},
+];
+function buildEj6(){
+  const c=document.getElementById('ej6');
+  ej6Data.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='exercise-item';
+    d.innerHTML=`<span class="item-num">${i+1}.</span><div class="item-text"><div class="verb-hint" style="margin-bottom:6px">${item.prompt} →</div><input class="full-input" id="e6_${i}" type="text" placeholder="Write the full present progressive sentence..." autocomplete="off" spellcheck="false"><div class="feedback" id="fb6_${i}"></div></div>`;
+    c.appendChild(d);
+  });
+}
+function checkEj6(){
+  let cor=0;
+  ej6Data.forEach((item,i)=>{
+    const inp=document.getElementById(`e6_${i}`),fb=document.getElementById(`fb6_${i}`);
+    const ok=item.accepted.some(a=>normalize(a)===normalize(inp.value));
+    inp.className='full-input '+(ok?'correct-input':'wrong-input');
+    document.querySelectorAll('#ej6 .exercise-item')[i].className='exercise-item '+(ok?'correct':'wrong');
+    fb.className='feedback show '+(ok?'correct':'wrong');
+    fb.textContent=ok?'✓ ¡Perfecto!':'✗ Sample: '+item.accepted[0];
+    if(ok)cor++;
+  });
+  showScore('score6',cor,ej6Data.length);
+}
+function resetEj6(){
+  ej6Data.forEach((_,i)=>{const inp=document.getElementById(`e6_${i}`);inp.value='';inp.className='full-input';document.getElementById(`fb6_${i}`).className='feedback';document.querySelectorAll('#ej6 .exercise-item')[i].className='exercise-item';});
+  document.getElementById('score6').className='score-badge';
+}
+
+// EJ 7
+const ej7Data=[
+  {prompt:'Yo / viajar a México / el próximo verano',accepted:['yo voy a viajar a mexico el proximo verano','voy a viajar a mexico el proximo verano']},
+  {prompt:'Tú / alojarse en un hotel boutique / este fin de semana',accepted:['tu vas a alojarte en un hotel boutique este fin de semana','vas a alojarte en un hotel boutique este fin de semana','tu vas a alojarse en un hotel boutique este fin de semana','vas a alojarse en un hotel boutique este fin de semana']},
+  {prompt:'Ella / recorrer la Patagonia / en diciembre',accepted:['ella va a recorrer la patagonia en diciembre','va a recorrer la patagonia en diciembre']},
+  {prompt:'Nosotros / hacer las maletas / esta noche',accepted:['nosotros vamos a hacer las maletas esta noche','vamos a hacer las maletas esta noche']},
+  {prompt:'Los estudiantes / visitar el museo / el sábado',accepted:['los estudiantes van a visitar el museo el sabado','van a visitar el museo el sabado']},
+  {prompt:'Él / aprender portugués / antes del viaje',accepted:['el va a aprender portugues antes del viaje','va a aprender portugues antes del viaje']},
+];
+function buildEj7(){
+  const c=document.getElementById('ej7');
+  ej7Data.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='exercise-item';
+    d.innerHTML=`<span class="item-num">${i+1}.</span><div class="item-text"><div class="verb-hint" style="margin-bottom:6px">${item.prompt} →</div><input class="full-input" id="e7_${i}" type="text" placeholder="Write the full ir a + infinitivo sentence..." autocomplete="off" spellcheck="false"><div class="feedback" id="fb7_${i}"></div></div>`;
+    c.appendChild(d);
+  });
+}
+function checkEj7(){
+  let cor=0;
+  ej7Data.forEach((item,i)=>{
+    const inp=document.getElementById(`e7_${i}`),fb=document.getElementById(`fb7_${i}`);
+    const ok=item.accepted.some(a=>normalize(a)===normalize(inp.value));
+    inp.className='full-input '+(ok?'correct-input':'wrong-input');
+    document.querySelectorAll('#ej7 .exercise-item')[i].className='exercise-item '+(ok?'correct':'wrong');
+    fb.className='feedback show '+(ok?'correct':'wrong');
+    fb.textContent=ok?'✓ ¡Excelente!':'✗ Sample: '+item.accepted[0];
+    if(ok)cor++;
+  });
+  showScore('score7',cor,ej7Data.length);
+}
+function resetEj7(){
+  ej7Data.forEach((_,i)=>{const inp=document.getElementById(`e7_${i}`);inp.value='';inp.className='full-input';document.getElementById(`fb7_${i}`).className='feedback';document.querySelectorAll('#ej7 .exercise-item')[i].className='exercise-item';});
+  document.getElementById('score7').className='score-badge';
+}
+
+// EJ 8
+const ej8Data=[
+  {before:'El vuelo',after:'tomamos duró doce horas.',accepted:['que']},
+  {before:'La ciudad',after:'vivimos tiene un mercado colonial muy famoso.',accepted:['donde']},
+  {before:'La arqueóloga con',after:'hablamos nos explicó la historia de las ruinas.',accepted:['quien']},
+  {before:'El museo',after:'visitamos tenía una colección de arte precolombino increíble.',accepted:['que']},
+  {before:'El hostal',after:'nos alojamos estaba a dos minutos de la playa.',accepted:['donde']},
+  {before:'El guía turístico de',after:'te hablé habla cuatro idiomas.',accepted:['quien']},
+  {before:'La excursión',after:'hicimos por el río fue la mejor parte del viaje.',accepted:['que']},
+];
+function buildEj8(){
+  const c=document.getElementById('ej8');
+  ej8Data.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='exercise-item';
+    d.innerHTML=`<span class="item-num">${i+1}.</span><div class="item-text"><div class="fill-sentence"><span>${item.before}</span><input class="blank-input" id="e8_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:70px;max-width:80px"><span>${item.after}</span></div><div class="feedback" id="fb8_${i}"></div></div>`;
+    c.appendChild(d);
+  });
+}
+function checkEj8(){
+  let cor=0;
+  ej8Data.forEach((item,i)=>{
+    const inp=document.getElementById(`e8_${i}`),fb=document.getElementById(`fb8_${i}`);
+    const ok=item.accepted.some(a=>normalize(a)===normalize(inp.value));
+    inp.className='blank-input '+(ok?'correct-input':'wrong-input');
+    document.querySelectorAll('#ej8 .exercise-item')[i].className='exercise-item '+(ok?'correct':'wrong');
+    fb.className='feedback show '+(ok?'correct':'wrong');
+    fb.textContent=ok?'✓ ¡Correcto!':'✗ Answer: '+item.accepted[0];
+    if(ok)cor++;
+  });
+  showScore('score8',cor,ej8Data.length);
+}
+function resetEj8(){
+  ej8Data.forEach((_,i)=>{const inp=document.getElementById(`e8_${i}`);inp.value='';inp.className='blank-input';document.getElementById(`fb8_${i}`).className='feedback';document.querySelectorAll('#ej8 .exercise-item')[i].className='exercise-item';});
+  document.getElementById('score8').className='score-badge';
+}
+
+function showScore(id,correct,total){
+  const el=document.getElementById(id);
+  el.textContent=`${correct} / ${total}`;
+  const pct=correct/total;
+  el.className='score-badge show '+(pct>=.85?'good':pct>=.6?'ok':'retry');
+}
+
+// CHECKLISTS
+const checklistItems=[
+  '☐ 2.5–3.5 minutes of speaking',
+  '☐ Regular preterite verbs (-ar/-er/-ir)',
+  '☐ Irregular preterite: hacer / ir / ser',
+  '☐ Present progressive — at least 1 in-progress moment',
+  '☐ At least 2 relative clauses (que / donde / quien)',
+  '☐ ir a + infinitivo for future plans',
+  '☐ At least 1 connector of cause or consequence',
+  '☐ Speak directly to camera',
+];
+const peerItems=[
+  '~2.5–3.5 minutes long',
+  'Uses irregular preterite (hacer / ir / ser)',
+  'Includes present progressive',
+  'Uses at least 2 relative clauses',
+  'Uses ir a + infinitivo',
+];
+
+function buildChecklist(items,cid,progId,statId){
+  const container=document.getElementById(cid);
+  if(!container)return;
+  items.forEach((text,i)=>{
+    const d=document.createElement('div');d.className='checklist-item';
+    d.innerHTML=`<input type="checkbox" id="cb_${cid}_${i}"><label for="cb_${cid}_${i}">${text}</label>`;
+    d.querySelector('input').addEventListener('change',()=>{
+      d.classList.toggle('done',d.querySelector('input').checked);
+      if(progId)updateProgress(cid,items.length,progId,statId);
+    });
+    container.appendChild(d);
+  });
+}
+function updateProgress(cid,total,progId,statId){
+  const checked=document.querySelectorAll(`#${cid} input[type=checkbox]:checked`).length;
+  document.getElementById(progId).style.width=(checked/total*100)+'%';
+  document.getElementById(statId).textContent=`${checked} / ${total} completed`;
+}
+
+buildChecklist(checklistItems,'checklist','checkProgress','checkStatus');
+buildChecklist(peerItems,'peerChecklist',null,null);
+buildEj5B();buildEj6();buildEj7();buildEj8();
+</script>
+</body>
+</html>
